@@ -13,13 +13,10 @@ var TutorialsComponent = (function () {
     function TutorialsComponent() {
         this.title = "Tutorials";
     }
-    TutorialsComponent.prototype.onClick = function (value, e) {
-        console.log(value, e);
-    };
     TutorialsComponent = __decorate([
         core_1.Component({
             selector: 'my-tutorials',
-            template: "<h2>{{title}}</h2>\n\t\t\t\t<button (click)=\"onClick(demoInput.value, $event)\">Click Me</button>\n\t\t\t\t<input type=\"text\" #demoInput>"
+            template: "<h2>{{title}}</h2>\n\t\t\t\t<input type=\"text\" [(ngModel)]=\"fname\">\n\t\t\t\t<input type=\"text\" [(ngModel)]=\"lname\">\n\t\t\t\tFullName: {{fname}} {{lname}}"
         }), 
         __metadata('design:paramtypes', [])
     ], TutorialsComponent);

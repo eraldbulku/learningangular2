@@ -3,13 +3,12 @@ import { Component } from '@angular/core';
 @Component({
 	selector: 'my-tutorials',
 	template: `<h2>{{title}}</h2>
-				<button (click)="onClick(demoInput.value, $event)">Click Me</button>
-				<input type="text" #demoInput>`
+				<input type="text" [(ngModel)]="fname">
+				<input type="text" [(ngModel)]="lname">
+				FullName: {{fname}} {{lname}}`
 })
 export class TutorialsComponent{
 	public title = "Tutorials";
-
-	onClick(value, e) {
-		console.log(value, e);
-	}
+	public fname;
+	public lname;
 }
