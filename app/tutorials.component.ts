@@ -3,10 +3,14 @@ import { Component } from '@angular/core';
 @Component({
 	selector: 'my-tutorials',
 	template: `<h2>{{title}}</h2>
-				<img [src]="imgLink"><br><br>
-				<input type="text" value="Angular">`
+				<div [class.myclass]="applyclass">Apply Class</div>
+				<div [style.color]="applyblue? 'blue' : 'orange'">This is style binding<div>`,
+	styles: [`.myClass{
+		color: red;
+	}`]
 })
 export class TutorialsComponent{
 	public title = "Tutorials";
-	public imgLink = "http://lorempixel.com/400/200";
+	public applyclass = true;
+	public applyblue = true;
 }
