@@ -12,14 +12,14 @@ var core_1 = require('@angular/core');
 var TutorialsComponent = (function () {
     function TutorialsComponent() {
         this.title = "Tutorials";
-        this.applyclass = true;
-        this.applyblue = true;
     }
+    TutorialsComponent.prototype.onClick = function (value, e) {
+        console.log(value, e);
+    };
     TutorialsComponent = __decorate([
         core_1.Component({
             selector: 'my-tutorials',
-            template: "<h2>{{title}}</h2>\n\t\t\t\t<div [class.myclass]=\"applyclass\">Apply Class</div>\n\t\t\t\t<div [style.color]=\"applyblue? 'blue' : 'orange'\">This is style binding<div>",
-            styles: [".myClass{\n\t\tcolor: red;\n\t}"]
+            template: "<h2>{{title}}</h2>\n\t\t\t\t<button (click)=\"onClick(demoInput.value, $event)\">Click Me</button>\n\t\t\t\t<input type=\"text\" #demoInput>"
         }), 
         __metadata('design:paramtypes', [])
     ], TutorialsComponent);

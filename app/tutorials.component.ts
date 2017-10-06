@@ -3,14 +3,13 @@ import { Component } from '@angular/core';
 @Component({
 	selector: 'my-tutorials',
 	template: `<h2>{{title}}</h2>
-				<div [class.myclass]="applyclass">Apply Class</div>
-				<div [style.color]="applyblue? 'blue' : 'orange'">This is style binding<div>`,
-	styles: [`.myClass{
-		color: red;
-	}`]
+				<button (click)="onClick(demoInput.value, $event)">Click Me</button>
+				<input type="text" #demoInput>`
 })
 export class TutorialsComponent{
 	public title = "Tutorials";
-	public applyclass = true;
-	public applyblue = true;
+
+	onClick(value, e) {
+		console.log(value, e);
+	}
 }
