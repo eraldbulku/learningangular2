@@ -3,12 +3,19 @@ import { Component } from '@angular/core';
 @Component({
 	selector: 'my-tutorials',
 	template: `<h2>{{title}}</h2>
-				<input type="text" [(ngModel)]="fname">
-				<input type="text" [(ngModel)]="lname">
-				FullName: {{fname}} {{lname}}`
+				<p *ngIf="showElement">Show Element</p>
+				<div [ngSwitch]='color'>
+					<p *ngSwitchWhen="'red'">Red color is shown</p>
+					<p *ngSwitchWhen="'blue'">Blue color is shown</p>
+					<p *ngSwitchDefault>Invalid Color</p>
+				</div>
+				<ul>
+					<li *ngFor="let color of colors">{{color}}</li>
+				</ul>`
 })
 export class TutorialsComponent{
 	public title = "Tutorials";
-	public fname;
-	public lname;
+	public showElement = true;
+	public color='blue';
+	public colors=['red', 'blue', 'green'];
 }
