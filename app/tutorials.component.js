@@ -12,14 +12,20 @@ var core_1 = require('@angular/core');
 var TutorialsComponent = (function () {
     function TutorialsComponent() {
         this.title = "Tutorials";
-        this.showElement = true;
-        this.color = 'blue';
-        this.colors = ['red', 'blue', 'green'];
+        this.cone = true;
+        this.ctwo = true;
+        this.style = 'italic';
+        this.size = '30px';
     }
+    TutorialsComponent.prototype.toggle = function () {
+        this.cone = !this.cone;
+        this.ctwo = !this.ctwo;
+    };
     TutorialsComponent = __decorate([
         core_1.Component({
             selector: 'my-tutorials',
-            template: "<h2>{{title}}</h2>\n\t\t\t\t<p *ngIf=\"showElement\">Show Element</p>\n\t\t\t\t<div [ngSwitch]='color'>\n\t\t\t\t\t<p *ngSwitchWhen=\"'red'\">Red color is shown</p>\n\t\t\t\t\t<p *ngSwitchWhen=\"'blue'\">Blue color is shown</p>\n\t\t\t\t\t<p *ngSwitchDefault>Invalid Color</p>\n\t\t\t\t</div>\n\t\t\t\t<ul>\n\t\t\t\t\t<li *ngFor=\"let color of colors\">{{color}}</li>\n\t\t\t\t</ul>"
+            template: "<h2>{{title}}</h2>\n\t\t\t\t<p [ngClass]=\"{classOne:cone, classTwo:ctwo}\">ngClass paragraph</p>\n\t\t\t\t<button (click)=\"toggle()\">Toggle</button>\n\t\t\t\t<p [ngStyle]=\"{'font-style':style, 'font-size': size}\">ngStyle Paragraph</p>",
+            styles: [".classOne{color:white}\n\t\t\t .classTwo{background-color:black}"]
         }), 
         __metadata('design:paramtypes', [])
     ], TutorialsComponent);
