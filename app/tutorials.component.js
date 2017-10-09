@@ -9,20 +9,15 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var core_2 = require('@angular/core');
 var TutorialsComponent = (function () {
     function TutorialsComponent() {
-        this.childEvent = new core_2.EventEmitter();
+        this.name = 'TheKobi';
+        this.date = new Date();
     }
-    TutorialsComponent.prototype.onChange = function (value) {
-        this.childEvent.emit(value);
-    };
     TutorialsComponent = __decorate([
         core_1.Component({
             selector: 'my-tutorials',
-            template: "<h2>Child Turorials Component</h2>\n\t\t\t\t<label>Enter Child TutorialsComponent Value</label>\n\t\t\t\t<input type=\"text\" #childtext (keyup)=\"onChange(childtext.value)\">\n  \t\t\t    <p>Value from Parent AppComponent is </p>\n  \t\t\t    {{parentData}}",
-            inputs: ['parentData'],
-            outputs: ['childEvent']
+            template: "<h2>{{name}}</h2>\n\t\t\t\t<h2>{{name | uppercase}}</h2>\n\t\t\t\t<h2>{{name | lowercase}}</h2>\n\t\t\t\t<h2>{{name | slice:'2':'4'}}</h2>\n\t\t\t\t<h2>{{name | replace:'The':'Hello'}}</h2>\n\n\t\t\t\t<h2>{{8.567}}</h2>\n\t\t\t\t<h2>{{8.567 | number:'1.2-3'}}</h2>\n\t\t\t\t<h2>{{8.567 | number:'2.2-3'}}</h2>\n\t\t\t\t<h2>{{8.567 | number:'2.4-4'}}</h2>\n\t\t\t\t<h2>{{8.567 | number:'2.2-2'}}</h2>\n\t\t\t\t<h2>{{8.99 | currency:'EUR':true}}</h2>\n\n\t\t\t\t<h2>{{date}}</h2>\n\t\t\t\t<h2>{{date | date:'fullDate'}}</h2>\n\t\t\t\t<h2>{{date | date:'shortDate'}}</h2>\n\t\t\t\t<h2>{{date | date:'mediumTime'}}</h2>\n\t\t\t\t<h2>{{date | date:'shortTime'}}</h2>\n\t\t\t\t",
         }), 
         __metadata('design:paramtypes', [])
     ], TutorialsComponent);
