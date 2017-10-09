@@ -16,7 +16,7 @@ var AppComponent = (function () {
     AppComponent = __decorate([
         core_1.Component({
             selector: 'my-app',
-            template: "<h1>Hello World</h1>\n  \t\t\t <my-tutorials></my-tutorials>",
+            template: "<h1>Hello World</h1>\n  \t\t\t  <h2>Parent App Component</h2>\n  \t\t\t  <label>Enter Parent AppComponent Value</label>\n  \t\t\t  <input type=\"text\" #ptext (keyup)=\"0\">\n  \t\t\t  <p>Value from Child TutorialsComponent is {{childData}}</p>\n  \t\t\t <my-tutorials [parentData]=\"ptext.value\" (childEvent)=\"childData=$event\"></my-tutorials>",
             directives: [tutorials_component_1.TutorialsComponent]
         }), 
         __metadata('design:paramtypes', [])

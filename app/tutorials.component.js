@@ -9,23 +9,20 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+var core_2 = require('@angular/core');
 var TutorialsComponent = (function () {
     function TutorialsComponent() {
-        this.title = "Tutorials";
-        this.cone = true;
-        this.ctwo = true;
-        this.style = 'italic';
-        this.size = '30px';
+        this.childEvent = new core_2.EventEmitter();
     }
-    TutorialsComponent.prototype.toggle = function () {
-        this.cone = !this.cone;
-        this.ctwo = !this.ctwo;
+    TutorialsComponent.prototype.onChange = function (value) {
+        this.childEvent.emit(value);
     };
     TutorialsComponent = __decorate([
         core_1.Component({
             selector: 'my-tutorials',
-            template: "<h2>{{title}}</h2>\n\t\t\t\t<p [ngClass]=\"{classOne:cone, classTwo:ctwo}\">ngClass paragraph</p>\n\t\t\t\t<button (click)=\"toggle()\">Toggle</button>\n\t\t\t\t<p [ngStyle]=\"{'font-style':style, 'font-size': size}\">ngStyle Paragraph</p>",
-            styles: [".classOne{color:white}\n\t\t\t .classTwo{background-color:black}"]
+            template: "<h2>Child Turorials Component</h2>\n\t\t\t\t<label>Enter Child TutorialsComponent Value</label>\n\t\t\t\t<input type=\"text\" #childtext (keyup)=\"onChange(childtext.value)\">\n  \t\t\t    <p>Value from Parent AppComponent is </p>\n  \t\t\t    {{parentData}}",
+            inputs: ['parentData'],
+            outputs: ['childEvent']
         }), 
         __metadata('design:paramtypes', [])
     ], TutorialsComponent);

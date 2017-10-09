@@ -1,23 +1,21 @@
 import { Component } from '@angular/core';
+import { EventEmitter } from '@angular/core';
 
 @Component({
 	selector: 'my-tutorials',
-	template: `<h2>{{title}}</h2>
-				<p [ngClass]="{classOne:cone, classTwo:ctwo}">ngClass paragraph</p>
-				<button (click)="toggle()">Toggle</button>
-				<p [ngStyle]="{'font-style':style, 'font-size': size}">ngStyle Paragraph</p>`,
-	styles: [`.classOne{color:white}
-			 .classTwo{background-color:black}`]
+	template: `<h2>Child Turorials Component</h2>
+				<label>Enter Child TutorialsComponent Value</label>
+				<input type="text" #childtext (keyup)="onChange(childtext.value)">
+  			    <p>Value from Parent AppComponent is </p>
+  			    {{parentData}}`,
+  	inputs: ['parentData'],
+  	outputs: ['childEvent']
 
 })
 export class TutorialsComponent{
-	public title = "Tutorials";
-	public cone = true;
-	public ctwo = true;
-	public style = 'italic';
-	public size = '30px';
-	toggle(){
-		this.cone=!this.cone;
-		this.ctwo=!this.ctwo;
+	public parentData: string;
+	childEvent = new EventEmitter<string>();
+	onChange(value:string){
+		this.childEvent.emit(value);
 	}
 }
