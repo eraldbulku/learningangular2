@@ -9,8 +9,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var AppComponent = /** @class */ (function () {
     function AppComponent() {
-        this.myName = "Kobi";
-        this.myEmail = "Kobi@gmail.com";
     }
     AppComponent.prototype.onSubmit = function (value) {
         console.log(value);
@@ -18,7 +16,10 @@ var AppComponent = /** @class */ (function () {
     AppComponent = __decorate([
         core_1.Component({
             selector: 'my-app',
-            templateUrl: '/app/app.component.html'
+            templateUrl: '/app/app.component.html',
+            styles: [
+                "input.ng-invalid{border-left:5px solid red;}\n  \tinput.ng-valid{border-left:5px solid green}"
+            ]
         })
     ], AppComponent);
     return AppComponent;
