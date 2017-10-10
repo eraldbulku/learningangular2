@@ -9,11 +9,16 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var AppComponent = /** @class */ (function () {
     function AppComponent() {
+        this.myName = "Kobi";
+        this.myEmail = "Kobi@gmail.com";
     }
+    AppComponent.prototype.onSubmit = function (value) {
+        console.log(value);
+    };
     AppComponent = __decorate([
         core_1.Component({
             selector: 'my-app',
-            template: '<h1>Hello World</h1><sub-app></sub-app>'
+            templateUrl: '/app/app.component.html'
         })
     ], AppComponent);
     return AppComponent;
