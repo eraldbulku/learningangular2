@@ -11,12 +11,12 @@ var forms_1 = require("@angular/forms");
 var AppComponent = /** @class */ (function () {
     function AppComponent() {
         this.userForm = new forms_1.FormGroup({
-            name: new forms_1.FormControl('Kobi'),
+            name: new forms_1.FormControl('Kobi', [forms_1.Validators.required, forms_1.Validators.minLength(4), forms_1.Validators.maxLength(10)]),
             email: new forms_1.FormControl(),
             address: new forms_1.FormGroup({
                 street: new forms_1.FormControl(),
                 city: new forms_1.FormControl(),
-                postalcode: new forms_1.FormControl()
+                postalcode: new forms_1.FormControl(null, forms_1.Validators.pattern('^[1-9][0-9]{4}$'))
             })
         });
     }
@@ -27,6 +27,7 @@ var AppComponent = /** @class */ (function () {
         core_1.Component({
             selector: 'my-app',
             templateUrl: '/app/app.component.html',
+            styles: ["\n  \tinput.ng-invalid {border-left: 5px solid red;}\n  \tinput.ng-valid {border-left: 5px solid green;}\n  "]
         })
     ], AppComponent);
     return AppComponent;
