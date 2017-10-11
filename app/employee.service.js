@@ -7,18 +7,21 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
-var employee_service_1 = require("./employee.service");
-var AppComponent = /** @class */ (function () {
-    function AppComponent() {
+var EmployeeService = /** @class */ (function () {
+    function EmployeeService() {
     }
-    AppComponent = __decorate([
-        core_1.Component({
-            selector: 'my-app',
-            template: "<h1>Random Company</h1>\n  \t\t\t<employee-list></employee-list>\n  \t\t\t<employee-detail></employee-detail>",
-            providers: [employee_service_1.EmployeeService]
-        })
-    ], AppComponent);
-    return AppComponent;
+    EmployeeService.prototype.getEmployees = function () {
+        return [
+            { "id": 1, "name": "Andi", "gender": "Male" },
+            { "id": 2, "name": "Kobi", "gender": "Male" },
+            { "id": 3, "name": "Christina", "gender": "Female" },
+            { "id": 4, "name": "Elena", "gender": "Female" }
+        ];
+    };
+    EmployeeService = __decorate([
+        core_1.Injectable()
+    ], EmployeeService);
+    return EmployeeService;
 }());
-exports.AppComponent = AppComponent;
-//# sourceMappingURL=app.component.js.map
+exports.EmployeeService = EmployeeService;
+//# sourceMappingURL=employee.service.js.map
