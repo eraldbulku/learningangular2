@@ -19,12 +19,12 @@ var EmployeeDetailComponent = /** @class */ (function () {
     EmployeeDetailComponent.prototype.ngOnInit = function () {
         var _this = this;
         this._employeeService.getEmployees()
-            .subscribe(function (resEmployeeData) { return _this.employees = resEmployeeData; });
+            .subscribe(function (resEmployeeData) { return _this.employees = resEmployeeData; }, function (resEmployeeError) { return _this.errorMsg = resEmployeeError; });
     };
     EmployeeDetailComponent = __decorate([
         core_1.Component({
             selector: 'employee-detail',
-            template: "<h2>Employee Details</h2>\n  \t\t\t<ul *ngFor=\"let employee of employees\">\n  \t\t\t\t<li>{{employee.id}}. {{employee.name}} - {{employee.gender}}</li>\n  \t\t\t</ul>"
+            template: "<h2>Employee Details</h2>\n  \t\t\t<h3>{{errorMsg}}</h3>\n  \t\t\t<ul *ngFor=\"let employee of employees\">\n  \t\t\t\t<li>{{employee.id}}. {{employee.name}} - {{employee.gender}}</li>\n  \t\t\t</ul>"
         }),
         __metadata("design:paramtypes", [employee_service_1.EmployeeService])
     ], EmployeeDetailComponent);
