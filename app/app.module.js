@@ -9,11 +9,9 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var platform_browser_1 = require("@angular/platform-browser");
 var http_1 = require("@angular/http");
+var app_routing_module_1 = require("./app-routing.module");
 var app_component_1 = require("./app.component");
-var employee_list_component_1 = require("./employee-list.component");
-var department_list_component_1 = require("./department-list.component");
-var employee_detail_component_1 = require("./employee-detail.component");
-var router_1 = require("@angular/router");
+var app_routing_module_2 = require("./app-routing.module");
 var AppModule = /** @class */ (function () {
     function AppModule() {
     }
@@ -22,12 +20,9 @@ var AppModule = /** @class */ (function () {
             imports: [
                 platform_browser_1.BrowserModule,
                 http_1.HttpModule,
-                router_1.RouterModule.forRoot([
-                    { path: 'departments', component: department_list_component_1.DepartmentListComponent },
-                    { path: 'employees', component: employee_list_component_1.EmployeeListComponent }
-                ])
+                app_routing_module_1.AppRoutingModule
             ],
-            declarations: [app_component_1.AppComponent, employee_list_component_1.EmployeeListComponent, employee_detail_component_1.EmployeeDetailComponent, department_list_component_1.DepartmentListComponent],
+            declarations: [app_component_1.AppComponent, app_routing_module_2.routingComponents],
             bootstrap: [app_component_1.AppComponent]
         })
     ], AppModule);
