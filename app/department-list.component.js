@@ -24,7 +24,8 @@ var DepartmentListComponent = /** @class */ (function () {
         ];
     }
     DepartmentListComponent.prototype.onSelect = function (department) {
-        this.router.navigate(['/departments', department.id]);
+        //this.router.navigate(['/departments', department.id]);
+        this.router.navigate([department.id, { relativeTo: this.route }]);
     };
     DepartmentListComponent.prototype.ngOnInit = function () {
         var _this = this;

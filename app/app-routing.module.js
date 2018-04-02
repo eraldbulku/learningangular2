@@ -14,7 +14,7 @@ var department_detail_component_1 = require("./department-detail.component");
 var home_component_1 = require("./home.component");
 var page_not_found_component_1 = require("./page-not-found.component");
 var routes = [
-    { path: '', component: home_component_1.HomeComponent },
+    { path: '', redirectTo: '/departments', pathMatch: 'full' },
     { path: 'departments', component: department_list_component_1.DepartmentListComponent },
     { path: 'employees', component: employee_list_component_1.EmployeeListComponent },
     { path: 'departments/:id', component: department_detail_component_1.DepartmentDetailComponent },
