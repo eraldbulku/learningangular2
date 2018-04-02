@@ -1,19 +1,20 @@
-import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { Router, ActivatedRoute, Params } from '@angular/router';
 
 @Component({
   selector: 'department-list',
   template: `<h3>Department List</h3>
   			<ul class="items">
-  				<li (click)="onSelect(department)" *ngFor="let department of departments">
+  				<li (click)="onSelect(department)" [class.selected]="isSelected(department)" *ngFor="let department of departments">
   					<span class="badge">{{department.id}}</span> {{department.name}}
   				</li>
   			</ul>
   			`,
 })
 
-export class DepartmentListComponent {
-	constructor(private router: Router){}
+export class DepartmentListComponent implements OnInit {
+	public selectedId;
+	constructor(private router: Router, private route: ActivatedRoute){}
 	departments = [
 		{"id": 1, "name": "Angular"},
 		{"id": 2, "name": "Node"},
@@ -26,4 +27,13 @@ export class DepartmentListComponent {
 	onSelect(department){
 		this.router.navigate(['/departments', department.id]);
 	}
+
+	ngOnInit(){
+		this.route.params.subscribe((params: Params)=>{
+			let id = parseInt(params['id']);
+			this.selectedId = id;
+		})
+	}
+
+	isSelected(department){ return department.id === this.selectedId}
 }

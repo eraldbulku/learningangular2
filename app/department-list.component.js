@@ -12,8 +12,9 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var router_1 = require("@angular/router");
 var DepartmentListComponent = /** @class */ (function () {
-    function DepartmentListComponent(router) {
+    function DepartmentListComponent(router, route) {
         this.router = router;
+        this.route = route;
         this.departments = [
             { "id": 1, "name": "Angular" },
             { "id": 2, "name": "Node" },
@@ -25,12 +26,20 @@ var DepartmentListComponent = /** @class */ (function () {
     DepartmentListComponent.prototype.onSelect = function (department) {
         this.router.navigate(['/departments', department.id]);
     };
+    DepartmentListComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.route.params.subscribe(function (params) {
+            var id = parseInt(params['id']);
+            _this.selectedId = id;
+        });
+    };
+    DepartmentListComponent.prototype.isSelected = function (department) { return department.id === this.selectedId; };
     DepartmentListComponent = __decorate([
         core_1.Component({
             selector: 'department-list',
-            template: "<h3>Department List</h3>\n  \t\t\t<ul class=\"items\">\n  \t\t\t\t<li (click)=\"onSelect(department)\" *ngFor=\"let department of departments\">\n  \t\t\t\t\t<span class=\"badge\">{{department.id}}</span> {{department.name}}\n  \t\t\t\t</li>\n  \t\t\t</ul>\n  \t\t\t",
+            template: "<h3>Department List</h3>\n  \t\t\t<ul class=\"items\">\n  \t\t\t\t<li (click)=\"onSelect(department)\" [class.selected]=\"isSelected(department)\" *ngFor=\"let department of departments\">\n  \t\t\t\t\t<span class=\"badge\">{{department.id}}</span> {{department.name}}\n  \t\t\t\t</li>\n  \t\t\t</ul>\n  \t\t\t",
         }),
-        __metadata("design:paramtypes", [router_1.Router])
+        __metadata("design:paramtypes", [router_1.Router, router_1.ActivatedRoute])
     ], DepartmentListComponent);
     return DepartmentListComponent;
 }());

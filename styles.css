@@ -12,3 +12,8 @@ h2, h3 {
 body {
   margin: 2em;
 }
+
+.items li.selected {
+	background-color: #CFD8DC;
+	color: white;
+}

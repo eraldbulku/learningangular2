@@ -4,7 +4,10 @@ import { ActivatedRoute, Router, Params } from '@angular/router';
 @Component({
   template: `<h3>You selected department with id = {{departmentId}} </h3>
   			<a (click)="goPrevious()">Previous</a>
-  			<a (click)="goNext()">Next</a>`
+  			<a (click)="goNext()">Next</a>
+  			<p>
+  				<button (click)="gotToDepartments()">Back</button>
+  			</p>`
 })
 
 export class DepartmentDetailComponent implements OnInit {
@@ -30,5 +33,10 @@ export class DepartmentDetailComponent implements OnInit {
 	goNext(){
 		let nextId = this.departmentId + 1;
 		this.router.navigate(['/departments', nextId]);
+	}
+
+	gotToDepartments(){
+		let selectedId = this.departmentId ? this.departmentId : null;
+		this.router.navigate(['/departments', {id: selectedId}])
 	}
 }
