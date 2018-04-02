@@ -7,18 +7,16 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
-var employee_service_1 = require("./employee.service");
-var AppComponent = /** @class */ (function () {
-    function AppComponent() {
+var DepartmentListComponent = /** @class */ (function () {
+    function DepartmentListComponent() {
     }
-    AppComponent = __decorate([
+    DepartmentListComponent = __decorate([
         core_1.Component({
-            selector: 'my-app',
-            template: "<h1>Random Company</h1>\n  \t\t\t<nav>\n  \t\t\t\t<a routerLink=\"/departments\" routerLinkActive=\"active\">Departments</a>\n  \t\t\t\t<a routerLink=\"/employees\" routerLinkActive=\"active\">Employees</a>\n  \t\t\t</nav>\n  \t\t\t<router-outlet></router-outlet>\n  \t\t\t",
-            providers: [employee_service_1.EmployeeService]
+            selector: 'department-list',
+            template: "<h3>Department List</h3>",
         })
-    ], AppComponent);
-    return AppComponent;
+    ], DepartmentListComponent);
+    return DepartmentListComponent;
 }());
-exports.AppComponent = AppComponent;
-//# sourceMappingURL=app.component.js.map
+exports.DepartmentListComponent = DepartmentListComponent;
+//# sourceMappingURL=department-list.component.js.map

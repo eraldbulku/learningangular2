@@ -11,14 +11,23 @@ var platform_browser_1 = require("@angular/platform-browser");
 var http_1 = require("@angular/http");
 var app_component_1 = require("./app.component");
 var employee_list_component_1 = require("./employee-list.component");
+var department_list_component_1 = require("./department-list.component");
 var employee_detail_component_1 = require("./employee-detail.component");
+var router_1 = require("@angular/router");
 var AppModule = /** @class */ (function () {
     function AppModule() {
     }
     AppModule = __decorate([
         core_1.NgModule({
-            imports: [platform_browser_1.BrowserModule, http_1.HttpModule],
-            declarations: [app_component_1.AppComponent, employee_list_component_1.EmployeeListComponent, employee_detail_component_1.EmployeeDetailComponent],
+            imports: [
+                platform_browser_1.BrowserModule,
+                http_1.HttpModule,
+                router_1.RouterModule.forRoot([
+                    { path: 'departments', component: department_list_component_1.DepartmentListComponent },
+                    { path: 'employees', component: employee_list_component_1.EmployeeListComponent }
+                ])
+            ],
+            declarations: [app_component_1.AppComponent, employee_list_component_1.EmployeeListComponent, employee_detail_component_1.EmployeeDetailComponent, department_list_component_1.DepartmentListComponent],
             bootstrap: [app_component_1.AppComponent]
         })
     ], AppModule);

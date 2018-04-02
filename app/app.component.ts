@@ -4,8 +4,12 @@ import { EmployeeService } from './employee.service';
 @Component({
   selector: 'my-app',
   template: `<h1>Random Company</h1>
-  			<employee-list></employee-list>
-  			<employee-detail></employee-detail>`,
+  			<nav>
+  				<a routerLink="/departments" routerLinkActive="active">Departments</a>
+  				<a routerLink="/employees" routerLinkActive="active">Employees</a>
+  			</nav>
+  			<router-outlet></router-outlet>
+  			`,
   providers: [EmployeeService]
 })
 
