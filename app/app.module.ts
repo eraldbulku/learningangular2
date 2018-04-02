@@ -5,7 +5,6 @@ import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent }   from './app.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { EmployeeDetailComponent } from './employee-detail.component';
 import { routingComponents } from './app-routing.module';
 
 @NgModule({
